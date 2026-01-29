@@ -1,0 +1,95 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const pageTitle = "Academic | Personal Site";
+const pageDescription = "Coursework and academic focus areas.";
+
+const courses = [
+  {
+    id: "course-1",
+    title: "PLACEHOLDER: Embedded Systems",
+    term: "Fall 2025",
+    description:
+      "PLACEHOLDER: Overview of microcontrollers, low-level firmware, and real-time constraints.",
+  },
+  {
+    id: "course-2",
+    title: "PLACEHOLDER: Digital Signal Processing",
+    term: "Spring 2025",
+    description:
+      "PLACEHOLDER: Filtering, Fourier analysis, and practical signal processing applications.",
+  },
+  {
+    id: "course-3",
+    title: "PLACEHOLDER: Computer Architecture",
+    term: "Fall 2024",
+    description:
+      "PLACEHOLDER: CPU design, memory hierarchies, and performance analysis fundamentals.",
+  },
+  {
+    id: "course-4",
+    title: "PLACEHOLDER: Machine Learning",
+    term: "Spring 2024",
+    description:
+      "PLACEHOLDER: Foundations of supervised learning, model evaluation, and dataset preparation.",
+  },
+];
+---
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <div class="container">
+    <section class="section">
+      <h1 class="section-title">Academic Courses</h1>
+      <p>
+        PLACEHOLDER: A brief overview of your academic focus and how these
+        courses support it.
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="accordion" aria-label="Course list">
+        {courses.map((course) => (
+          <div class="accordion-item">
+            <h2>
+              <button
+                class="accordion-trigger"
+                id={course.id}
+                aria-expanded="false"
+                aria-controls={`${course.id}-panel`}
+                type="button"
+              >
+                {course.title}
+                <span>{course.term}</span>
+              </button>
+            </h2>
+            <div
+              id={`${course.id}-panel`}
+              class="accordion-panel"
+              role="region"
+              aria-labelledby={course.id}
+              hidden
+            >
+              <p>{course.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const triggers = document.querySelectorAll('.accordion-trigger');
+
+    triggers.forEach((trigger) => {
+      const panelId = trigger.getAttribute('aria-controls');
+      const panel = panelId ? document.getElementById(panelId) : null;
+
+      trigger.addEventListener('click', () => {
+        const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+        trigger.setAttribute('aria-expanded', String(!isExpanded));
+        if (panel) {
+          panel.hidden = isExpanded;
+        }
+      });
+    });
+  </script>
+</BaseLayout>

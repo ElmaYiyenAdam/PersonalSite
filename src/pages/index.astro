@@ -1,0 +1,71 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const pageTitle = "Home | Personal Site";
+const pageDescription = "Introduction and CV for a computer engineering student.";
+---
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <div class="container">
+    <section class="section hero">
+      <div class="hero-card">
+        <h1>Hi, I'm [Your Name].</h1>
+        <p>
+          PLACEHOLDER: A short, calm introduction about your focus areas,
+          research interests, and the kind of work you enjoy.
+        </p>
+        <p>
+          PLACEHOLDER: Mention your program, university, and academic goals in
+          one or two sentences.
+        </p>
+      </div>
+      <div>
+        <div class="profile-image">
+          <img
+            src="/assets/profile-placeholder.svg"
+            alt="Placeholder profile portrait"
+          />
+        </div>
+        <p class="profile-caption">PLACEHOLDER: Photo caption or quick fact.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Curriculum Vitae</h2>
+      <div class="cv-wrap">
+        <object
+          class="cv-embed"
+          data="/assets/cv-placeholder.pdf"
+          type="application/pdf"
+        >
+          <p>
+            Your browser doesn't support embedded PDFs.
+            <a class="cv-link" href="/assets/cv-placeholder.pdf">
+              Open or download the CV
+            </a>
+          </p>
+        </object>
+        <a class="cv-link" href="/assets/cv-placeholder.pdf">
+          Open or download the CV
+        </a>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Interests</h2>
+      <div class="list-grid">
+        <article class="card">
+          <h3>PLACEHOLDER Topic</h3>
+          <p>Short description of a research or project interest.</p>
+        </article>
+        <article class="card">
+          <h3>PLACEHOLDER Topic</h3>
+          <p>Short description of a research or project interest.</p>
+        </article>
+        <article class="card">
+          <h3>PLACEHOLDER Topic</h3>
+          <p>Short description of a research or project interest.</p>
+        </article>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
